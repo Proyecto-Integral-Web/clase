@@ -3,7 +3,8 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-
+// Librerias de usuario
+import 'bootstrap/scss/bootstrap.scss'
 Vue.config.productionTip = false
 
 new Vue({
