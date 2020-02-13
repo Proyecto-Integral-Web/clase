@@ -44,13 +44,15 @@
 </template>
 // Script, ubicamos todo el javascript de nuestros componentes o views
 <script lang="js">
+import Auth from '@/config/auth.js'
 export default {
   name: 'LoginForm',
   data () {
     return {
       user: {
-        email: '',
-        password: ''
+        email: 'mail@mail.com',
+        password: '123456',
+        nombre: 'Test'
       }
     }
   },
@@ -61,6 +63,7 @@ export default {
     console.log(`Estoy en created ${this.user}`)
   },
   mounted () {
+    Auth.signUp(this.user)
     console.log(`Estoy en mounted ${this.user}`)
     console.log(`Estoy en ${this.$route.name}`)
     // this.login()
@@ -75,6 +78,7 @@ export default {
       console.log('User local' + user.email)
       console.log('User from data:' + this.user.email)
       console.log(this.user.password)
+      Auth.login(this.user)
 
       setTimeout(() => {
         // Luego de iniciar sesión nos envia a la pagina about
