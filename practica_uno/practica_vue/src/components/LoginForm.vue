@@ -63,7 +63,7 @@ export default {
     console.log(`Estoy en created ${this.user}`)
   },
   mounted () {
-    Auth.signUp(this.user)
+    // Auth.signUp(this.user)
     console.log(`Estoy en mounted ${this.user}`)
     console.log(`Estoy en ${this.$route.name}`)
     // this.login()
@@ -78,12 +78,13 @@ export default {
       console.log('User local' + user.email)
       console.log('User from data:' + this.user.email)
       console.log(this.user.password)
+      // Aquí llamo la funcion login de mi archivo auth.js
       Auth.login(this.user)
 
-      setTimeout(() => {
-        // Luego de iniciar sesión nos envia a la pagina about
-        this.$router.push({ name: 'about' })
-      }, 1000)
+      // setTimeout(() => {
+      // Luego de iniciar sesión nos envia a la pagina about
+      // this.$router.push({ name: 'about' })
+      // }, 1000)
     }
   }
 }
