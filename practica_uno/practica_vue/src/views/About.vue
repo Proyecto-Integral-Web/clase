@@ -5,7 +5,8 @@
       class="btn btn-danger"
       @click="logOut"
     >
-      Cerrar Sesión</button>
+      Cerrar Sesión
+    </button>
   </div>
 </template>
 <script lang="js">

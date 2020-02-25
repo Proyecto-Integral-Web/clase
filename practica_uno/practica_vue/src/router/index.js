@@ -10,11 +10,11 @@ Vue.use(VueRouter)
 const routes = [
   // Agregamos nueva rutas
   {
-    path: '/', // asignamos path, el cual también tiene que ser unico.
-    name: 'login', // Asignamos nombre, debe ser unico y original.
-    component: Login, // Decalaramos componente
+    path: '/', //* asignamos path, el cual también tiene que ser unico.
+    name: 'login', //* Asignamos nombre, debe ser unico y original.
+    component: Login, // *Decalaramos componente
     meta: {
-      auth: false // Se utiliza para controlar el acceso a usuarios o no.
+      auth: false //* Se utiliza para controlar el acceso a usuarios o no.
     }
   },
   {
@@ -30,7 +30,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
     meta: {
-      auth: true // Se utiliza para controlar el acceso a usuarios o no.
+      auth: true //* Se utiliza para controlar el acceso a usuarios o no.
     }
   }
 ]

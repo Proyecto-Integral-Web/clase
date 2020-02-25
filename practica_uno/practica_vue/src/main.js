@@ -8,15 +8,25 @@ import Auth from './config/auth'
 // Librerias de usuario
 import 'bootstrap/scss/bootstrap.scss'
 Vue.config.productionTip = false
-// Metodo de comprobación de permiso de accceso
-router.beforeEach((to, from, next) => {
+//* Metodo de comprobación de permiso de accceso
+router.beforeEach(async (to, from, next) => {
+  //* Verificamos las rutas que neceistan autorización
   if (to.meta.auth) {
     console.log('Necesita permiso para entrar')
-    if (Auth.checkUser()) {
-      next()
-      // return
+    //* Traemos info del usuario actual
+    let user = await Auth.checkUser()
+    console.log(`User: ${user}`)
+    //* Comprobamos que si haya usuario
+    if (user == null) {
+      //* Si no hay usuario, lo mandamos al login
+      next({
+        name: 'login'
+      })
+      return
     }
-    router.push({ name: 'login' })
+    //* Si hay usuario ingresamos a la ruta.
+    console.log(`Usuario logeado: ${user.email}`)
+    next()
   }
   next()
 })
