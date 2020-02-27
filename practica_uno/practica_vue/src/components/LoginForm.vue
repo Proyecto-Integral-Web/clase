@@ -71,15 +71,19 @@ export default {
   methods: {
     login () {
       // Esta variable es de uso local de nuestro metodo.
-      let user = {
-        email: 'esto es local'
-      }
-      console.log('soy el login')
-      console.log('User local' + user.email)
-      console.log('User from data:' + this.user.email)
-      console.log(this.user.password)
+      // let user = {
+      //   email: 'esto es local'
+      // }
+      // console.log('soy el login')
+      // console.log('User local' + user.email)
+      // console.log('User from data:' + this.user.email)
+      // console.log(this.user.password)
       // Aquí llamo la funcion login de mi archivo auth.js
-      Auth.login(this.user)
+      Auth.login(this.user).catch(error => {
+        // *Tomamos el error y lo utilizamos en el alert correspondiente.
+        console.log('Estoy en LoginForm')
+        console.log('Esto es un error:' + error.code, error.message)
+      })
 
       // setTimeout(() => {
       // Luego de iniciar sesión nos envia a la pagina about
