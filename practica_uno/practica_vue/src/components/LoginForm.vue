@@ -3,12 +3,19 @@
   <section>
     <h3 class="text-left">Hello, </h3>
     <h3 class="text-left">Welcome back! </h3>
+    <!-- * Lo utilizamos como etiqueta de HTML -->
+    <alerts-component
+      v-if="showError"
+      :message="errorMessage"
+      :code="errorCode"
+    ></alerts-component>
     <div class="form-group">
       <input
         type="email"
         class="form-control mb-2"
         placeholder="E-mail"
         v-model="user.email"
+        @keypress="showError = false"
       >
       <input
         type="password"
@@ -16,6 +23,7 @@
         placeholder="Password"
         v-model="user.password"
         @keypress.enter="login"
+        @keypress="showError = false"
       >
       <!-- Handlebars templating -->
       {{user.password}}
@@ -45,10 +53,18 @@
 // Script, ubicamos todo el javascript de nuestros componentes o views
 <script lang="js">
 import Auth from '@/config/auth.js'
+//* Importamos componente reutilizable de alertas.
+import AlertsComponent from './helpers/Alerts'
 export default {
   name: 'LoginForm',
+  components: {
+    AlertsComponent //* Lo registramos como componente.
+  },
   data () {
     return {
+      showError: false,
+      errorMessage: '',
+      errorCode: '',
       user: {
         email: 'mail@mail.com',
         password: '123456',
@@ -83,6 +99,12 @@ export default {
         // *Tomamos el error y lo utilizamos en el alert correspondiente.
         console.log('Estoy en LoginForm')
         console.log('Esto es un error:' + error.code, error.message)
+        this.showError = true
+        this.errorMessage = error.message
+        this.errorCode = error.code
+        // setTimeout(() => {
+        //   this.showError = false
+        // }, 700)
       })
 
       // setTimeout(() => {
