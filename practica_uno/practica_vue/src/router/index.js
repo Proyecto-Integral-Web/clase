@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 // Importamos nuevas vistas
 import Login from '../views/Login.vue'
+import Partida from '../views/Juego/Partida.vue'
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,12 @@ const routes = [
     meta: {
       auth: true //* Se utiliza para controlar el acceso a usuarios o no.
     }
+  },
+  {
+    // * Ruta dinamica, donde no_partida puede ser diferente para cargar dicha partida.
+    path: '/juego-1/:no_partida',
+    name: 'partida',
+    component: Partida
   }
 ]
 

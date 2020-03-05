@@ -5,7 +5,8 @@
       <router-link
         to="/about"
         :class="$route.name=='about'?'btn':''"
-      >About</router-link>
+      >About</router-link> |
+      <router-link to="/juego-1/partida-1">Juego</router-link>
     </div>
     <!-- Container fluid nos da un ancho completo -->
     <div class="container-fluid">

@@ -26,8 +26,8 @@
         @keypress="showError = false"
       >
       <!-- Handlebars templating -->
-      {{user.password}}
-      {{1+1}}
+      <!-- {{user.password}}
+      {{1+1}} -->
     </div>
     <div class="form-group">
       <div class="row">
