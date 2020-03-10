@@ -6,7 +6,7 @@
       </div>
       <div class="row">
         <div class="col-3 mx-auto">
-          <h1>✂️</h1>
+          <h1>{{options[userOpcion]}}</h1>
         </div>
       </div>
       <div class="row">
@@ -29,6 +29,7 @@
 <script lang="js">
 export default {
   name: 'UserArena',
+  props: ['userOpcion'],
   data () {
     return {
       options: {
