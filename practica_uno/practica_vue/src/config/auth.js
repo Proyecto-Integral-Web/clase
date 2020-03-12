@@ -37,5 +37,8 @@ export default {
       console.table(err)
     })
     console.log(data)
+  },
+  getUser() {
+    return fireApp.auth().currentUser
   }
 }

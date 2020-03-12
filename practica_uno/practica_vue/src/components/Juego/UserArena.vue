@@ -2,7 +2,7 @@
   <section>
     <div class="container-fluid pb-5">
       <div class="row">
-        <h3 class="mx-auto">User 1</h3>
+        <h3 class="mx-auto">{{displayName}}</h3>
       </div>
       <div class="row">
         <div class="col-3 mx-auto">
@@ -29,7 +29,7 @@
 <script lang="js">
 export default {
   name: 'UserArena',
-  props: ['userOpcion'],
+  props: ['userOpcion', 'displayName'],
   data () {
     return {
       options: {
